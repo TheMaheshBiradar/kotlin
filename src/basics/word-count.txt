@@ -1,0 +1,22 @@
+
+Michael Feathers in his book “Working Effectively with Legacy Code” defines legacy code as, code without tests.
+
+Code without tests is a bad code. It doesn’t matter how well written it is; how well structured it is; how well encapsulated it is.Without tests there is no way to tell if our code is getting better or worse.
+
+Well, a slightly modified version of this definition is “code without unit tests is called legacy code”. It is always better to have tests as close to the code as possible (unit tests > integration tests > UI tests). So, it would not be unfair to call a code without unit tests a legacy code.
+
+
+The Boy Scout Rule
+The idea behind the Boy Scout Rule, as stated by Uncle Bob, is fairly simple: Leave the code cleaner than you found it! Whenever you touch an old code, you should clean it properly. Do not just apply a shortcut solution that will make the code more difficult to understand but instead treat it with care. It’s not enough to write code well, the code has to be kept clean over time.
+
+We get a very strong message when Boy Scout rule is applied to legacy code “leave a trace of understanding behind you for others to follow”, which means we will refactor the code to make it more understandable. And in order to refactor, we will build Safety Net around it.
+
+Now that we understand we can not take shortcuts the only option that is left with us is to write some tests, refactor code and proceed with the development.
+
+This article is in continuation with the previous article where we defined some of the key aspects of Legacy Code. In this article we will take a Legacy code and add a new feature to it.
+Before we begin with an example, let’s take a moment to understand Broken Window Theory
+An academic theory proposed by James Q. Wilson and George Kelling in 1982 that used broken windows as a metaphor for disorder within neighbourhoods.
+
+One broken window, if left unrepaired for a substantial amount of time, instills a sense of abandonment. So another window gets broken. People start littering. Graffiti appears. Serious structural damage begins. In a relatively short time, the building becomes damaged beyond the owner’s desire to fix it, and the sense of abandonment becomes reality.
+
+Let’s not abandon our code, let’s repair the code as soon as we get an opportunity to repair it and let’s not get ourselves into a situation where damage is beyond our capacity to fix. Let’s see our theory in action.

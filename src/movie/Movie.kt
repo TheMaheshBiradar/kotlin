@@ -78,9 +78,22 @@ class MovieStore(var movieList:List<Movie>) {
         return  movieList.filter { it-> it.actors.contains(actorName)}.map { it->it.title };
     }
 
-
+    /**
+     * map(it->it.title and it.title is one and the same)
+     */
     fun getMoviesByActressName(actressName: String): List<String> {
-        return  movieList.filter { it-> it.actress.contains(actressName)}.map { it->it.title };
+      //  return  movieList.filter { it-> it.actress.contains(actressName)}.map { it->it.title };
+        return  movieList.filter { it-> it.actress.contains(actressName)}.map {it.title };
+    }
+
+    /**
+     * this function will take any criteria to filter and will return the results.
+     *
+     * Please note we are passing lambda inside function and JVM calls it Higher order functions
+     *
+     */
+    fun filterOnCondition (criteria:(Movie)->Boolean):List<String>{
+        return movieList.filter(criteria).map { it->it.title}
     }
 
 }
@@ -125,5 +138,5 @@ fun main(args: Array<String>) {
     println(movieStore.getMoviesByActorName("Aamir Khan"))
     println(movieStore.getMoviesByActressName("Gracy Singh"))
 
-
+    println(movieStore.filterOnCondition { it.releaseDate.year==2003});
 }

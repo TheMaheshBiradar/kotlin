@@ -43,6 +43,22 @@ class Movie private constructor(val imdbID:String, val title:String, val release
                 }
     }
 
+    /**
+     * destructing is not required when data class is present because data classes are meant for that :)
+     */
+    operator fun component1()=title
+    operator fun component2()=director
+
+    //above access should be (title,director)=movie...close to javascript
+    //order has to be same.... or else use _ if you don't want to use it
+
+    //operator overloadinig contaiins
+
+  //below code can be invoked using movie in movies in movie stor
+    /*operator fun contains(movie: Movie):Boolean{
+        return true;
+    }
+*/
 
 }
 

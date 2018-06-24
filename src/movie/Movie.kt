@@ -41,7 +41,11 @@ class Movie private constructor(val imdbID:String, val title:String, val release
                 imdbID = movieAttributes[6],
                 director = movieAttributes[7])
                 }
+
     }
+
+
+
 
     /**
      * destructing is not required when data class is present because data classes are meant for that :)
@@ -62,7 +66,7 @@ class Movie private constructor(val imdbID:String, val title:String, val release
 
 }
 
-class MovieStore(var movieList:List<Movie>) {
+class MovieStore(val movieList:List<Movie>) {
 
     fun getMoviesByRelaseYear(year: Int): List<String> {
         return  movieList.filter { it-> it.releaseDate.year.equals(year) }.map { it->it.title };
@@ -95,6 +99,7 @@ class MovieStore(var movieList:List<Movie>) {
     fun filterOnCondition (criteria:(Movie)->Boolean):List<String>{
         return movieList.filter(criteria).map { it->it.title}
     }
+
 
 }
 
